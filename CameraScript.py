@@ -28,11 +28,13 @@ while True:
 		attention=1
 	if re.search("^;LAYER:",line):														##This would indicate a layer change
 		outfile.write("G91\n" + 		##Use relative Positioning
-		"G1 F6000 E-8\n" + 				##Pull in filement (we need to be relative here)
-		"G90\n" + 						##Use Relative Positioning
+		"G1 F6000 E-8\n" + 				##Pull in filement
+		"G90\n" + 						##Use Absolute Positioning
 		"G1 F6000 X10 Y233\n" + 		##Move almost to the edge
 		"G1 Y235 F50\n" + 				##Move (slowly) and push the button
 		"G0 F6000\n")					##Set the feedrate back (else the code seems to go slow??) NEEDS TO BE CHECKED
 		if attention==1: outfile.write(coords+"\n")										##Move back to last position before this code (if there is any)
-		outfile.write("G91\n" + "G1 F6000 E8\n" + "G90\n" )								##More GCode
+		outfile.write("G91\n" + 		##Use relative Positioning
+		"G1 F6000 E8\n" + 				##Z-hop back
+		"G90\n" )						##Use Absolute Positioning
 print('Done!')
