@@ -31,8 +31,8 @@ while True:
 		"G1 F6000 E-8\n" + 				##Pull in filement
 		"G1 F6000 Z1\n" + 				##Do a Z-hop
 		"G90\n" + 						##Use Absolute Positioning
-		"G1 F6000 X10 Y233\n" + 		##Move almost to the edge
-		"G1 Y235 F50\n" + 				##Move (slowly) and push the button
+		"G1 F6000 X10 Y230\n" + 		##Move almost to the edge
+		"G1 F300 Y235\n" + 				##Move (slowly) and push the button
 		"G0 F6000\n")					##Set the feedrate back (else the code seems to go slow??) NEEDS TO BE CHECKED
 		if attention==1: outfile.write(coords+"\n")										##Move back to last position before this code (if there is any)
 		outfile.write("G91\n" + 		##Use relative Positioning
