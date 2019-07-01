@@ -6,8 +6,6 @@ if inpfilename == "":inpfilename="input.gcode"			##If no name is given use this
 if "." not in inpfilename:
 	inpfilename = inpfilename + ".gcode"				##If no extension was given add this extension
 
-##IndentationError: expected an indented block
-
 try: file=open(inpfilename)
 except: quit()
 
