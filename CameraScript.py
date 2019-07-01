@@ -29,6 +29,7 @@ while True:
 	if re.search("^;LAYER:",line):														##This would indicate a layer change
 		outfile.write("G91\n" + 		##Use relative Positioning
 		"G1 F6000 E-8\n" + 				##Pull in filement
+		"G1 F6000 Z1\n" + 				##Do a Z-hop
 		"G90\n" + 						##Use Absolute Positioning
 		"G1 F6000 X10 Y233\n" + 		##Move almost to the edge
 		"G1 Y235 F50\n" + 				##Move (slowly) and push the button
@@ -36,5 +37,6 @@ while True:
 		if attention==1: outfile.write(coords+"\n")										##Move back to last position before this code (if there is any)
 		outfile.write("G91\n" + 		##Use relative Positioning
 		"G1 F6000 E8\n" + 				##Z-hop back
+		"G1 F6000 Z-1\n" + 				##Undo the Z hop
 		"G90\n" )						##Use Absolute Positioning
 print('Done!')
