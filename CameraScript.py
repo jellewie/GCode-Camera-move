@@ -8,6 +8,8 @@ PosSlowY = 5 		##Amount to slowly move of the PosY to pres the button
 EndCharacter = ";End of Gcode" ##This marks the end of the file, WARNING if non found, the program would freeze! 
 LayerChar = "^;LAYER:"	##This would indicate a layer
 
+##Do not change things below this line unles you know what you are doing.
+
 inpfilename=input("enter file name: ")
 if inpfilename == "":
 	inpfilename="input.gcode"					##If no name is given use this
