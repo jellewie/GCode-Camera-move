@@ -5,7 +5,7 @@ PosY = 235			##Y pos to go to when pausing
 Zhop = 1			##Amount to Zhop 
 Retract = 8			##Distance to retract
 PosSlowY = 5 		##Amount to slowly move of the PosY to pres the button
-
+EndCharacter = ";End of Gcode" ##This marks the end of the file, WARNING if non found, the program would freeze! 
 
 inpfilename=input("enter file name: ")
 if inpfilename == "":
@@ -24,7 +24,7 @@ while True:
 	line=InFile.readline()						##Read a line from the input file
 	OutFile.write(line)							##Write the line to the output file
 	line=line.rstrip()							##remove any trailing characters (DO WE NEED THIS?)
-	if line==";End of Gcode": break				##Stop if we find this line
+	if line==EndCharacter: break				##Stop if we find this line
 	content=line.split()						##Split the line at each space, stored in the array
 	try: tester=content[0]						##If this is a emthy line
 	except: continue							##Just ignore it and continue
