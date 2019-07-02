@@ -6,6 +6,7 @@ Zhop = 1			##Amount to Zhop
 Retract = 8			##Distance to retract
 PosSlowY = 5 		##Amount to slowly move of the PosY to pres the button
 EndCharacter = ";End of Gcode" ##This marks the end of the file, WARNING if non found, the program would freeze! 
+LayerChar = "^;LAYER:"	##This would indicate a layer
 
 inpfilename=input("enter file name: ")
 if inpfilename == "":
@@ -31,7 +32,7 @@ while True:
 	if content[0]=="G0":						##If this line starts with a G0 command
 		coords=line								##Save the coords in case we need it later
 		ReturnCoordsFlag=1						##Flag that we have a location to return to 
-	if re.search("^;LAYER:",line):				##This would indicate a layer change
+	if re.search(LayerChar,line):				##This would indicate a layer change
 		OutFile.write("G91\n" + 												##Use relative Positioning
 		"G1 F" + str(Feedrate) + " E-" + str(Retract) + "\n"					##Pull in filement
 		"G1 F" + str(Feedrate) + " Z" + str(Zhop) + "\n" + 						##Do a Z-hop
