@@ -9,7 +9,7 @@ if "." not in inpfilename:
 
 import os.path
 if not os.path.isfile(inpfilename):				##If this file does not exist
-	print('No valid input file given')
+	print('"' + str(inpfilename) + '" is not a valid input file')
 	quit()
 	
 InFile=open(inpfilename)						##Open the file for use
