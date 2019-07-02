@@ -44,7 +44,6 @@ while True:
 		"G0 F" + str(Feedrate) + "\n")											##Set the feedrate back (else the code seems to go slow??) NEEDS TO BE CHECKED
 		if ReturnCoordsFlag==1: OutFile.write(coords+"\n")						##Move back to last position before this code (if there is any)
 		OutFile.write("G91\n" + 												##Use relative Positioning
-		"G1 F" + str(Feedrate) + " E" + str(Retract) + "\n" 					##Z-hop back
-		"G1 F" + str(Feedrate) + " Z-" + str(Zhop) + "\n" + 					##Undo the Z hop
+		"G1 F" + str(Feedrate) + " Z-" + str(Zhop) + " E" + str(Retract) + "\n" + 	##Undo the Z hop and prime
 		"G90\n" )																##Use Absolute Positioning
 print('Done!')
