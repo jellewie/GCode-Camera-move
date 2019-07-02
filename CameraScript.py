@@ -7,8 +7,12 @@ if inpfilename == "":
 if "." not in inpfilename:
 	inpfilename = inpfilename + ".gcode"		##If no extension was given add this extension
 
-try: file=open(inpfilename)
-except: quit()
+import os.path
+if not os.path.isfile(inpfilename):				##If this file does not exist
+	print('No valid input file given')
+	quit()
+	
+InFile=open(inpfilename)						##Open the file for use
 
 outfile=open("C_" + inpfilename,"w")					##Create output file
 
