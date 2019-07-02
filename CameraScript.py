@@ -1,22 +1,3 @@
-import re
-
-inpfilename=input("enter file name: ")
-if inpfilename == "":
-	inpfilename="input.gcode"					##If no name is given use this
-
-if "." not in inpfilename:
-	inpfilename = inpfilename + ".gcode"		##If no extension was given add this extension
-
-import os.path
-if not os.path.isfile(inpfilename):				##If this file does not exist
-	print('"' + str(inpfilename) + '" is not a valid input file')
-	quit()
-	
-InFile=open(inpfilename)						##Open the file for use
-OutFile=open("C_" + inpfilename,"w")			##Create output file
-ReturnCoordsFlag=0								##Reset the flag that markes that we have coords to return to
-
-
 Feedrate = 6000		##mm/min speed 
 FeedrateSlow = 300	##mm/min speed to move slowly
 PosX = 10			##X pos to go to when pausing
@@ -25,6 +6,20 @@ Zhop = 1			##Amount to Zhop
 Retract = 8			##Distance to retract
 PosSlowY = 5 		##Amount to slowly move of the PosY to pres the button
 
+
+inpfilename=input("enter file name: ")
+if inpfilename == "":
+	inpfilename="input.gcode"					##If no name is given use this
+if "." not in inpfilename:
+	inpfilename = inpfilename + ".gcode"		##If no extension was given add this extension
+import os.path
+if not os.path.isfile(inpfilename):				##If this file does not exist
+	print('"' + str(inpfilename) + '" is not a valid input file')
+	quit()
+InFile=open(inpfilename)						##Open the file for use
+OutFile=open("C_" + inpfilename,"w")			##Create output file
+ReturnCoordsFlag=0								##Reset the flag that markes that we have coords to return to
+import re
 while True:
 	line=InFile.readline()						##Read a line from the input file
 	OutFile.write(line)							##Write the line to the output file
