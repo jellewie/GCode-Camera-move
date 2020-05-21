@@ -3,7 +3,7 @@ PosX = 10			##X pos to go to when pausing
 PosY = 235			##Y pos to go to when pausing
 Zhop = 1			##Amount to Zhop 
 Retract = 8			##Distance to retract
-EndCharacter = ";End of Gcode" ##This marks the end of the file, WARNING if non found, the program would freeze! 
+EndCharacter = ";End of Gcode" ##This marks the end of the file, WARNING if non found, this program would freeze! 
 LayerChar = "^;LAYER:"	##This would indicate a layer
 
 LayerPrefix = ';LAYER:' ##We could automate this one, it's just like LayerChar
